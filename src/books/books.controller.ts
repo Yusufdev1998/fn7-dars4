@@ -17,7 +17,10 @@ export class BooksController {
   getBooks() {
     return this.booksService.getAllBooks();
   }
-
+  @Get('/count')
+  getBooksCount() {
+    return this.booksService.getBooksCount();
+  }
   @Get('/:id')
   getBookById(@Param() params: { id: string }) {
     const { id } = params;
@@ -38,10 +41,5 @@ export class BooksController {
   deleteBook(@Param() params: { id: string }) {
     const { id } = params;
     return this.booksService.deleteBook(+id);
-  }
-
-  @Get('/count')
-  getBooksCount() {
-    return this.booksService.getBooksCount();
   }
 }
